@@ -1,0 +1,29 @@
+.products-search {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.products-group {
+  margin-bottom: 16px;
+}
+
+.products-group__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  margin: 0 0 6px 4px;
+}
+
+.products-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 12px;
+}

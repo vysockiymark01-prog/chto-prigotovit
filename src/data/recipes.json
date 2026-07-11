@@ -1,0 +1,926 @@
+[
+  {
+    "id": "omlet-klassicheskiy",
+    "name": "Омлет классический",
+    "mealType": ["завтрак"],
+    "timeMinutes": 10,
+    "servings": 2,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "yaica", "amount": 4 },
+      { "productId": "moloko", "amount": 100 },
+      { "productId": "sol", "amount": 2 },
+      { "productId": "maslo-slivochnoe", "amount": 10 }
+    ],
+    "steps": [
+      "Взбейте яйца с молоком и солью венчиком до однородности.",
+      "Разогрейте сковороду, растопите масло.",
+      "Вылейте смесь на сковороду, убавьте огонь.",
+      "Готовьте под крышкой 5-7 минут до готовности."
+    ]
+  },
+  {
+    "id": "omlet-s-syrom-i-zelenju",
+    "name": "Омлет с сыром и зеленью",
+    "mealType": ["завтрак"],
+    "timeMinutes": 12,
+    "servings": 2,
+    "calories": 320,
+    "ingredients": [
+      { "productId": "yaica", "amount": 4 },
+      { "productId": "moloko", "amount": 80 },
+      { "productId": "syr", "amount": 60 },
+      { "productId": "zelenyi-luk", "amount": 15 },
+      { "productId": "sol", "amount": 2 },
+      { "productId": "maslo-slivochnoe", "amount": 10 }
+    ],
+    "steps": [
+      "Взбейте яйца с молоком и солью.",
+      "Натрите сыр на тёрке, мелко нарежьте зелёный лук.",
+      "Разогрейте сковороду с маслом, вылейте яичную смесь.",
+      "Посыпьте сыром и луком, готовьте под крышкой 5-6 минут."
+    ]
+  },
+  {
+    "id": "syrniki",
+    "name": "Сырники",
+    "mealType": ["завтрак"],
+    "timeMinutes": 25,
+    "servings": 3,
+    "calories": 280,
+    "ingredients": [
+      { "productId": "tvorog", "amount": 400 },
+      { "productId": "yaica", "amount": 1 },
+      { "productId": "muka", "amount": 60 },
+      { "productId": "sahar", "amount": 30 },
+      { "productId": "sol", "amount": 1 },
+      { "productId": "maslo-rast", "amount": 20 }
+    ],
+    "steps": [
+      "Смешайте творог, яйцо, сахар и соль до однородности.",
+      "Всыпьте муку и замесите мягкое тесто.",
+      "Сформируйте лепёшки, обваляйте в муке.",
+      "Обжарьте на растительном масле по 3-4 минуты с каждой стороны."
+    ]
+  },
+  {
+    "id": "oladyi-na-kefire",
+    "name": "Оладьи на кефире",
+    "mealType": ["завтрак"],
+    "timeMinutes": 25,
+    "servings": 4,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "kefir", "amount": 400 },
+      { "productId": "yaica", "amount": 1 },
+      { "productId": "muka", "amount": 250 },
+      { "productId": "sahar", "amount": 40 },
+      { "productId": "sol", "amount": 2 },
+      { "productId": "razryhlitel", "amount": 5 },
+      { "productId": "maslo-rast", "amount": 30 }
+    ],
+    "steps": [
+      "Смешайте кефир, яйцо, сахар и соль.",
+      "Добавьте муку с разрыхлителем, размешайте до однородного теста без комков.",
+      "Разогрейте сковороду с маслом.",
+      "Жарьте оладьи по 2-3 минуты с каждой стороны на среднем огне."
+    ]
+  },
+  {
+    "id": "kasha-grechnevaya-na-moloke",
+    "name": "Гречневая каша на молоке",
+    "mealType": ["завтрак"],
+    "timeMinutes": 25,
+    "servings": 2,
+    "calories": 300,
+    "ingredients": [
+      { "productId": "grechka", "amount": 150 },
+      { "productId": "moloko", "amount": 400 },
+      { "productId": "sahar", "amount": 15 },
+      { "productId": "sol", "amount": 2 },
+      { "productId": "maslo-slivochnoe", "amount": 15 }
+    ],
+    "steps": [
+      "Промойте гречку.",
+      "Залейте молоком, добавьте сахар и соль.",
+      "Доведите до кипения, убавьте огонь и варите 15-18 минут под крышкой.",
+      "Заправьте маслом перед подачей."
+    ]
+  },
+  {
+    "id": "ovsyanka-na-moloke",
+    "name": "Овсяная каша на молоке",
+    "mealType": ["завтрак"],
+    "timeMinutes": 15,
+    "servings": 2,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "ovsyanka", "amount": 100 },
+      { "productId": "moloko", "amount": 400 },
+      { "productId": "sahar", "amount": 15 },
+      { "productId": "sol", "amount": 1 },
+      { "productId": "maslo-slivochnoe", "amount": 10 }
+    ],
+    "steps": [
+      "Доведите молоко до кипения.",
+      "Всыпьте овсяные хлопья, сахар и соль.",
+      "Варите на слабом огне 5-7 минут, помешивая.",
+      "Заправьте маслом перед подачей."
+    ]
+  },
+  {
+    "id": "mannaya-kasha",
+    "name": "Манная каша",
+    "mealType": ["завтрак"],
+    "timeMinutes": 15,
+    "servings": 2,
+    "calories": 240,
+    "ingredients": [
+      { "productId": "manka", "amount": 80 },
+      { "productId": "moloko", "amount": 400 },
+      { "productId": "sahar", "amount": 20 },
+      { "productId": "sol", "amount": 1 },
+      { "productId": "maslo-slivochnoe", "amount": 10 }
+    ],
+    "steps": [
+      "Доведите молоко до кипения.",
+      "Тонкой струйкой всыпьте манку, постоянно помешивая.",
+      "Варите 3-5 минут на слабом огне до загустения.",
+      "Добавьте сахар, соль и масло."
+    ]
+  },
+  {
+    "id": "buterbrody-s-syrom",
+    "name": "Бутерброды с сыром и яйцом",
+    "mealType": ["завтрак", "перекус"],
+    "timeMinutes": 10,
+    "servings": 2,
+    "calories": 320,
+    "ingredients": [
+      { "productId": "hleb-belyi", "amount": 100 },
+      { "productId": "syr", "amount": 60 },
+      { "productId": "yaica", "amount": 2 },
+      { "productId": "maslo-slivochnoe", "amount": 20 }
+    ],
+    "steps": [
+      "Сварите яйца вкрутую (8-10 минут), остудите и нарежьте кружочками.",
+      "Намажьте хлеб маслом.",
+      "Выложите сверху сыр и яйцо."
+    ]
+  },
+  {
+    "id": "buterbrod-s-kolbasoy",
+    "name": "Бутерброд с колбасой и огурцом",
+    "mealType": ["завтрак", "перекус"],
+    "timeMinutes": 8,
+    "servings": 1,
+    "calories": 280,
+    "ingredients": [
+      { "productId": "hleb-cherny", "amount": 60 },
+      { "productId": "kolbasa-varenaya", "amount": 60 },
+      { "productId": "ogurcy", "amount": 40 },
+      { "productId": "maslo-slivochnoe", "amount": 10 }
+    ],
+    "steps": [
+      "Намажьте хлеб маслом.",
+      "Нарежьте колбасу и огурец тонкими ломтиками.",
+      "Выложите на хлеб."
+    ]
+  },
+  {
+    "id": "tvorog-so-smetanoy",
+    "name": "Творог со сметаной и сахаром",
+    "mealType": ["завтрак", "перекус"],
+    "timeMinutes": 5,
+    "servings": 1,
+    "calories": 220,
+    "ingredients": [
+      { "productId": "tvorog", "amount": 200 },
+      { "productId": "smetana", "amount": 50 },
+      { "productId": "sahar", "amount": 15 }
+    ],
+    "steps": [
+      "Выложите творог в миску.",
+      "Добавьте сметану и сахар.",
+      "Перемешайте."
+    ]
+  },
+  {
+    "id": "grechka-s-kuricej",
+    "name": "Гречка с курицей",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 2,
+    "calories": 520,
+    "ingredients": [
+      { "productId": "grechka", "amount": 200 },
+      { "productId": "kurica-file", "amount": 300 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "sol", "amount": 3 },
+      { "productId": "perec-cherny", "amount": 1 }
+    ],
+    "steps": [
+      "Нарежьте курицу кубиками, лук — мелко.",
+      "Обжарьте лук на масле до мягкости, добавьте курицу.",
+      "Обжаривайте 7-10 минут до румяности, посолите и поперчите.",
+      "Промойте гречку, добавьте к курице, залейте водой (1:2).",
+      "Доведите до кипения, убавьте огонь и томите под крышкой 15-18 минут."
+    ]
+  },
+  {
+    "id": "makarony-s-farshem",
+    "name": "Макароны с мясным фаршем",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 35,
+    "servings": 3,
+    "calories": 480,
+    "ingredients": [
+      { "productId": "makarony", "amount": 300 },
+      { "productId": "farsh-svin-gov", "amount": 400 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "sol", "amount": 3 },
+      { "productId": "perec-cherny", "amount": 1 },
+      { "productId": "tomatnaya-pasta", "amount": 30 }
+    ],
+    "steps": [
+      "Отварите макароны в подсоленной воде согласно инструкции на упаковке.",
+      "Обжарьте мелко нарезанный лук на масле до мягкости.",
+      "Добавьте фарш, разминая вилкой, жарьте 10-12 минут.",
+      "Добавьте томатную пасту, соль и перец, потушите 5 минут.",
+      "Смешайте с готовыми макаронами."
+    ]
+  },
+  {
+    "id": "kartoshka-s-kuricej-v-duhovke",
+    "name": "Картофель с курицей в духовке",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 60,
+    "servings": 4,
+    "calories": 460,
+    "ingredients": [
+      { "productId": "kartofel", "amount": 1000 },
+      { "productId": "kurica-bedro", "amount": 800 },
+      { "productId": "luk", "amount": 150 },
+      { "productId": "maslo-rast", "amount": 30 },
+      { "productId": "chesnok", "amount": 10 },
+      { "productId": "sol", "amount": 5 },
+      { "productId": "paprika", "amount": 5 },
+      { "productId": "kuricy-priprava", "amount": 5 }
+    ],
+    "steps": [
+      "Нарежьте картофель крупными дольками, лук — полукольцами.",
+      "Курицу натрите солью, паприкой, приправой и раздавленным чесноком.",
+      "Смешайте картофель и лук с маслом и щепоткой соли.",
+      "Выложите на противень картофель и курицу.",
+      "Запекайте при 200°C 40-45 минут до румяной корочки."
+    ]
+  },
+  {
+    "id": "kartofelnoe-pyure-s-kotletami",
+    "name": "Картофельное пюре с котлетами",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 50,
+    "servings": 4,
+    "calories": 540,
+    "ingredients": [
+      { "productId": "kartofel", "amount": 800 },
+      { "productId": "moloko", "amount": 150 },
+      { "productId": "maslo-slivochnoe", "amount": 30 },
+      { "productId": "farsh-svin-gov", "amount": 500 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "yaica", "amount": 1 },
+      { "productId": "batondlya-toastov", "amount": 60 },
+      { "productId": "suhari-panirovochnye", "amount": 40 },
+      { "productId": "sol", "amount": 5 },
+      { "productId": "maslo-rast", "amount": 40 }
+    ],
+    "steps": [
+      "Замочите батон в небольшом количестве молока.",
+      "Смешайте фарш с отжатым батоном, мелко нарезанным луком, яйцом и солью.",
+      "Сформируйте котлеты, обваляйте в сухарях.",
+      "Обжарьте котлеты на масле по 5-6 минут с каждой стороны.",
+      "Отварите картофель до готовности, слейте воду.",
+      "Разомните картофель с горячим молоком и маслом до пюре."
+    ]
+  },
+  {
+    "id": "plov-s-govyadinoj",
+    "name": "Плов с говядиной",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 70,
+    "servings": 4,
+    "calories": 560,
+    "ingredients": [
+      { "productId": "ris-dlinnozerny", "amount": 400 },
+      { "productId": "govyadina", "amount": 500 },
+      { "productId": "morkov", "amount": 300 },
+      { "productId": "luk", "amount": 150 },
+      { "productId": "chesnok", "amount": 15 },
+      { "productId": "maslo-rast", "amount": 80 },
+      { "productId": "zira", "amount": 3 },
+      { "productId": "sol", "amount": 5 }
+    ],
+    "steps": [
+      "Нарежьте говядину кубиками, морковь — соломкой, лук — полукольцами.",
+      "Обжарьте мясо на масле в казане или толстостенной кастрюле до румяной корочки.",
+      "Добавьте лук, обжарьте до золотистого цвета, затем морковь.",
+      "Добавьте зиру, соль, залейте водой, чтобы покрывала мясо, тушите 30 минут.",
+      "Промойте рис, выложите поверх мяса, воткните целые зубчики чеснока.",
+      "Залейте водой на 1,5 см выше риса, готовьте под крышкой на слабом огне 25-30 минут."
+    ]
+  },
+  {
+    "id": "borshch",
+    "name": "Борщ",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 90,
+    "servings": 5,
+    "calories": 320,
+    "ingredients": [
+      { "productId": "svinina", "amount": 400 },
+      { "productId": "svekla", "amount": 300 },
+      { "productId": "kapusta", "amount": 300 },
+      { "productId": "kartofel", "amount": 300 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "tomatnaya-pasta", "amount": 50 },
+      { "productId": "chesnok", "amount": 10 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "lavrushka", "amount": 2 },
+      { "productId": "sol", "amount": 5 },
+      { "productId": "smetana", "amount": 50 }
+    ],
+    "steps": [
+      "Отварите мясо до готовности (50-60 минут), выньте, бульон процедите.",
+      "Нарежьте картофель и капусту, добавьте в бульон, варите 15 минут.",
+      "Свёклу и морковь натрите на тёрке, лук нарежьте мелко.",
+      "Обжарьте лук и морковь на масле, добавьте свёклу и томатную пасту, тушите 10 минут.",
+      "Добавьте зажарку и нарезанное мясо в кастрюлю, посолите, положите лавровый лист.",
+      "Варите ещё 10 минут, дайте настояться. Подавайте со сметаной."
+    ]
+  },
+  {
+    "id": "kurinyj-sup-s-vermishelyu",
+    "name": "Куриный суп с вермишелью",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 50,
+    "servings": 4,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "kurica-golen", "amount": 500 },
+      { "productId": "kartofel", "amount": 300 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "vermishel", "amount": 80 },
+      { "productId": "lavrushka", "amount": 2 },
+      { "productId": "sol", "amount": 4 },
+      { "productId": "zelenyi-luk", "amount": 10 }
+    ],
+    "steps": [
+      "Отварите курицу до готовности (30-35 минут), снимите пену.",
+      "Добавьте нарезанный картофель, варите 10 минут.",
+      "Добавьте натёртую морковь и нарезанный лук, варите 5 минут.",
+      "Всыпьте вермишель, посолите, положите лавровый лист.",
+      "Варите ещё 5-7 минут. Подавайте с зелёным луком."
+    ]
+  },
+  {
+    "id": "gorohovyj-sup",
+    "name": "Гороховый суп с копчёностями",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 60,
+    "servings": 4,
+    "calories": 340,
+    "ingredients": [
+      { "productId": "goroh", "amount": 250 },
+      { "productId": "kolbasa-kopchenaya", "amount": 200 },
+      { "productId": "kartofel", "amount": 300 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "lavrushka", "amount": 2 },
+      { "productId": "sol", "amount": 3 }
+    ],
+    "steps": [
+      "Промойте горох, залейте водой, варите 30-35 минут до размягчения.",
+      "Добавьте нарезанный картофель, варите 10 минут.",
+      "Обжарьте лук и морковь, нарезанную копчёную колбасу.",
+      "Добавьте зажарку в суп, посолите, положите лавровый лист.",
+      "Варите ещё 10 минут."
+    ]
+  },
+  {
+    "id": "tushenaya-kapusta-s-myasom",
+    "name": "Тушёная капуста с мясом",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 50,
+    "servings": 4,
+    "calories": 320,
+    "ingredients": [
+      { "productId": "kapusta", "amount": 800 },
+      { "productId": "svinina", "amount": 400 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "tomatnaya-pasta", "amount": 30 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "sol", "amount": 4 },
+      { "productId": "lavrushka", "amount": 1 }
+    ],
+    "steps": [
+      "Нарежьте свинину небольшими кусочками, обжарьте на масле до румяности.",
+      "Добавьте нарезанный лук и морковь, обжарьте 5 минут.",
+      "Добавьте нашинкованную капусту, перемешайте.",
+      "Добавьте томатную пасту, соль, лавровый лист и немного воды.",
+      "Тушите под крышкой на слабом огне 25-30 минут, изредка помешивая."
+    ]
+  },
+  {
+    "id": "kotlety-kurinye",
+    "name": "Котлеты куриные",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 4,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "farsh-kurin", "amount": 500 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "yaica", "amount": 1 },
+      { "productId": "batondlya-toastov", "amount": 50 },
+      { "productId": "moloko", "amount": 40 },
+      { "productId": "suhari-panirovochnye", "amount": 40 },
+      { "productId": "maslo-rast", "amount": 30 },
+      { "productId": "sol", "amount": 4 }
+    ],
+    "steps": [
+      "Замочите батон в молоке, затем отожмите.",
+      "Смешайте фарш с батоном, мелко нарезанным луком, яйцом и солью.",
+      "Сформируйте котлеты, обваляйте в сухарях.",
+      "Обжарьте на масле по 5-6 минут с каждой стороны на среднем огне.",
+      "Убавьте огонь, накройте крышкой и доведите до готовности 5 минут."
+    ]
+  },
+  {
+    "id": "kotlety-svino-govyazhi",
+    "name": "Котлеты свино-говяжьи",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 45,
+    "servings": 4,
+    "calories": 380,
+    "ingredients": [
+      { "productId": "farsh-svin-gov", "amount": 500 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "yaica", "amount": 1 },
+      { "productId": "batondlya-toastov", "amount": 60 },
+      { "productId": "moloko", "amount": 40 },
+      { "productId": "suhari-panirovochnye", "amount": 50 },
+      { "productId": "maslo-rast", "amount": 30 },
+      { "productId": "sol", "amount": 4 }
+    ],
+    "steps": [
+      "Замочите батон в молоке, затем отожмите.",
+      "Смешайте фарш с батоном, мелко нарезанным луком, яйцом и солью, вымесите.",
+      "Сформируйте котлеты, обваляйте в сухарях.",
+      "Обжарьте на масле по 5-6 минут с каждой стороны.",
+      "Убавьте огонь и доведите до готовности под крышкой 7-8 минут."
+    ]
+  },
+  {
+    "id": "makarony-s-syrom",
+    "name": "Макароны с сыром",
+    "mealType": ["обед", "ужин", "перекус"],
+    "timeMinutes": 20,
+    "servings": 2,
+    "calories": 420,
+    "ingredients": [
+      { "productId": "makarony", "amount": 250 },
+      { "productId": "syr", "amount": 100 },
+      { "productId": "maslo-slivochnoe", "amount": 30 },
+      { "productId": "sol", "amount": 3 }
+    ],
+    "steps": [
+      "Отварите макароны в подсоленной воде согласно инструкции.",
+      "Слейте воду, добавьте масло.",
+      "Натрите сыр на тёрке и перемешайте с горячими макаронами до расплавления."
+    ]
+  },
+  {
+    "id": "ris-s-kurinoj-pechenju",
+    "name": "Рис с куриной печенью",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 3,
+    "calories": 420,
+    "ingredients": [
+      { "productId": "ris", "amount": 300 },
+      { "productId": "pechen-kurin", "amount": 400 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "morkov", "amount": 80 },
+      { "productId": "maslo-rast", "amount": 25 },
+      { "productId": "sol", "amount": 4 },
+      { "productId": "smetana", "amount": 60 }
+    ],
+    "steps": [
+      "Отварите рис до готовности в подсоленной воде.",
+      "Обжарьте лук и морковь на масле до мягкости.",
+      "Добавьте нарезанную печень, жарьте 7-8 минут.",
+      "Добавьте сметану, посолите, потушите 5 минут.",
+      "Подавайте печень с рисом."
+    ]
+  },
+  {
+    "id": "tushenaya-kartoshka-s-mintaem",
+    "name": "Тушёная картошка с минтаем",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 45,
+    "servings": 3,
+    "calories": 300,
+    "ingredients": [
+      { "productId": "kartofel", "amount": 600 },
+      { "productId": "mintay", "amount": 500 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "morkov", "amount": 80 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "tomatnaya-pasta", "amount": 30 },
+      { "productId": "sol", "amount": 4 }
+    ],
+    "steps": [
+      "Разморозьте минтай, нарежьте кусками.",
+      "Нарежьте картофель кубиками, лук и морковь мелко.",
+      "Обжарьте лук и морковь на масле, добавьте томатную пасту.",
+      "Добавьте картофель и воду, чтобы почти покрывала овощи, тушите 15 минут.",
+      "Добавьте рыбу и соль, тушите ещё 10-12 минут до готовности."
+    ]
+  },
+  {
+    "id": "mintay-v-kljare",
+    "name": "Минтай в кляре",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 35,
+    "servings": 3,
+    "calories": 320,
+    "ingredients": [
+      { "productId": "mintay", "amount": 600 },
+      { "productId": "muka", "amount": 100 },
+      { "productId": "yaica", "amount": 1 },
+      { "productId": "maslo-rast", "amount": 60 },
+      { "productId": "sol", "amount": 3 }
+    ],
+    "steps": [
+      "Разморозьте минтай, нарежьте порционными кусками, посолите.",
+      "Взбейте яйцо, отдельно насыпьте муку.",
+      "Обваляйте рыбу в муке, затем в яйце.",
+      "Обжарьте на разогретом масле по 3-4 минуты с каждой стороны."
+    ]
+  },
+  {
+    "id": "kartoshka-s-gribami",
+    "name": "Картошка тушёная с грибами",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 3,
+    "calories": 280,
+    "ingredients": [
+      { "productId": "kartofel", "amount": 700 },
+      { "productId": "griby-shampinony", "amount": 300 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "smetana", "amount": 80 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "sol", "amount": 3 }
+    ],
+    "steps": [
+      "Нарежьте картофель кубиками, грибы — пластинками, лук — мелко.",
+      "Обжарьте лук с грибами на масле до испарения жидкости.",
+      "Добавьте картофель, обжарьте 5 минут.",
+      "Влейте немного воды, посолите, тушите под крышкой 15-20 минут.",
+      "За 5 минут до готовности добавьте сметану."
+    ]
+  },
+  {
+    "id": "kabachki-zharenye",
+    "name": "Жареные кабачки со сметаной",
+    "mealType": ["обед", "ужин", "перекус"],
+    "timeMinutes": 25,
+    "servings": 3,
+    "calories": 180,
+    "ingredients": [
+      { "productId": "kabachok", "amount": 700 },
+      { "productId": "muka", "amount": 40 },
+      { "productId": "maslo-rast", "amount": 40 },
+      { "productId": "sol", "amount": 3 },
+      { "productId": "smetana", "amount": 60 }
+    ],
+    "steps": [
+      "Нарежьте кабачки кружочками толщиной около 1 см, посолите.",
+      "Обваляйте каждый кружок в муке.",
+      "Обжарьте на разогретом масле по 2-3 минуты с каждой стороны до золотистой корочки.",
+      "Подавайте со сметаной."
+    ]
+  },
+  {
+    "id": "perec-farshirovannyj",
+    "name": "Перец фаршированный",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 60,
+    "servings": 4,
+    "calories": 300,
+    "ingredients": [
+      { "productId": "perec-bolgarskiy", "amount": 600 },
+      { "productId": "farsh-svin-gov", "amount": 400 },
+      { "productId": "ris", "amount": 150 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "morkov", "amount": 80 },
+      { "productId": "tomatnaya-pasta", "amount": 40 },
+      { "productId": "sol", "amount": 4 },
+      { "productId": "smetana", "amount": 60 }
+    ],
+    "steps": [
+      "Отварите рис до полуготовности (7-8 минут).",
+      "Очистите перцы от семян, оставив целыми.",
+      "Смешайте фарш, рис, мелко нарезанный лук, соль.",
+      "Начините перцы фаршем, выложите в кастрюлю.",
+      "Обжарьте морковь, добавьте томатную пасту и воду, залейте перцы соусом.",
+      "Тушите под крышкой на слабом огне 35-40 минут. Подавайте со сметаной."
+    ]
+  },
+  {
+    "id": "golubcy-lenivye",
+    "name": "Ленивые голубцы",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 50,
+    "servings": 4,
+    "calories": 320,
+    "ingredients": [
+      { "productId": "kapusta", "amount": 400 },
+      { "productId": "farsh-svin-gov", "amount": 400 },
+      { "productId": "ris", "amount": 150 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "morkov", "amount": 80 },
+      { "productId": "tomatnaya-pasta", "amount": 40 },
+      { "productId": "sol", "amount": 4 }
+    ],
+    "steps": [
+      "Отварите рис до полуготовности.",
+      "Мелко нашинкуйте капусту, ошпарьте кипятком и отожмите.",
+      "Смешайте фарш, рис, капусту, мелко нарезанный лук и соль.",
+      "Сформируйте котлетки, слегка обжарьте с двух сторон.",
+      "Обжарьте морковь с томатной пастой и водой, залейте котлетки соусом.",
+      "Тушите под крышкой 20-25 минут."
+    ]
+  },
+  {
+    "id": "selyodka-pod-shuboj",
+    "name": "Сельдь под шубой",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 6,
+    "calories": 280,
+    "ingredients": [
+      { "productId": "selyodka", "amount": 300 },
+      { "productId": "kartofel", "amount": 400 },
+      { "productId": "morkov", "amount": 300 },
+      { "productId": "svekla", "amount": 400 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "mayonez", "amount": 200 },
+      { "productId": "yaica", "amount": 2 }
+    ],
+    "steps": [
+      "Отварите картофель, морковь и свёклу отдельно до готовности, остудите и очистите.",
+      "Отварите яйца вкрутую, остудите.",
+      "Нарежьте филе сельди небольшими кусочками, выложите на дно формы.",
+      "Сверху выложите слоями мелко нарезанный лук, тёртый картофель, морковь, яйца — каждый слой промазывая майонезом.",
+      "Завершите слоем тёртой свёклы, смажьте майонезом.",
+      "Уберите в холодильник минимум на 2 часа перед подачей."
+    ]
+  },
+  {
+    "id": "olivye",
+    "name": "Салат Оливье",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 6,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "kartofel", "amount": 400 },
+      { "productId": "morkov", "amount": 200 },
+      { "productId": "kolbasa-varenaya", "amount": 300 },
+      { "productId": "yaica", "amount": 4 },
+      { "productId": "konservirovanniy-goroshek", "amount": 200 },
+      { "productId": "ogurcy", "amount": 200 },
+      { "productId": "mayonez", "amount": 180 },
+      { "productId": "sol", "amount": 2 }
+    ],
+    "steps": [
+      "Отварите картофель и морковь в мундире до готовности, остудите и очистите.",
+      "Отварите яйца вкрутую, остудите и очистите.",
+      "Нарежьте картофель, морковь, яйца, колбасу и огурцы мелкими кубиками.",
+      "Смешайте все ингредиенты с горошком.",
+      "Заправьте майонезом и посолите по вкусу."
+    ]
+  },
+  {
+    "id": "salat-s-krabovymi-palochkami",
+    "name": "Салат с крабовыми палочками",
+    "mealType": ["обед", "ужин", "перекус"],
+    "timeMinutes": 20,
+    "servings": 4,
+    "calories": 220,
+    "ingredients": [
+      { "productId": "krabovye-palochki", "amount": 200 },
+      { "productId": "yaica", "amount": 3 },
+      { "productId": "ris", "amount": 100 },
+      { "productId": "kukuruza-konserv", "amount": 200 },
+      { "productId": "mayonez", "amount": 120 }
+    ],
+    "steps": [
+      "Отварите рис до готовности и остудите.",
+      "Отварите яйца вкрутую, остудите, очистите и нарежьте кубиками.",
+      "Нарежьте крабовые палочки кубиками.",
+      "Смешайте рис, яйца, крабовые палочки и кукурузу.",
+      "Заправьте майонезом."
+    ]
+  },
+  {
+    "id": "salat-iz-ogurcov-i-pomidorov",
+    "name": "Салат из огурцов и помидоров",
+    "mealType": ["обед", "ужин", "перекус"],
+    "timeMinutes": 10,
+    "servings": 3,
+    "calories": 90,
+    "ingredients": [
+      { "productId": "ogurcy", "amount": 300 },
+      { "productId": "pomidory", "amount": 300 },
+      { "productId": "luk", "amount": 50 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "ukrop", "amount": 10 },
+      { "productId": "sol", "amount": 2 }
+    ],
+    "steps": [
+      "Нарежьте огурцы и помидоры дольками или кубиками.",
+      "Тонко нарежьте лук полукольцами.",
+      "Смешайте овощи, посолите, добавьте измельчённый укроп.",
+      "Заправьте растительным маслом."
+    ]
+  },
+  {
+    "id": "salat-vitaminnyj-iz-kapusty",
+    "name": "Витаминный салат из капусты",
+    "mealType": ["обед", "ужин", "перекус"],
+    "timeMinutes": 15,
+    "servings": 3,
+    "calories": 110,
+    "ingredients": [
+      { "productId": "kapusta", "amount": 400 },
+      { "productId": "morkov", "amount": 150 },
+      { "productId": "ogurcy", "amount": 150 },
+      { "productId": "maslo-rast", "amount": 25 },
+      { "productId": "sol", "amount": 2 },
+      { "productId": "ukrop", "amount": 10 }
+    ],
+    "steps": [
+      "Тонко нашинкуйте капусту, слегка помните руками с солью.",
+      "Натрите морковь на крупной тёрке, нарежьте огурцы соломкой.",
+      "Смешайте овощи, добавьте измельчённый укроп.",
+      "Заправьте растительным маслом."
+    ]
+  },
+  {
+    "id": "syrnyj-sup-s-kuricej",
+    "name": "Сырный суп с курицей",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 45,
+    "servings": 4,
+    "calories": 300,
+    "ingredients": [
+      { "productId": "kurica-file", "amount": 400 },
+      { "productId": "kartofel", "amount": 400 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "syr", "amount": 150 },
+      { "productId": "sol", "amount": 4 },
+      { "productId": "zelenyi-luk", "amount": 10 }
+    ],
+    "steps": [
+      "Отварите куриное филе до готовности (20-25 минут), выньте и нарежьте кусочками.",
+      "В бульон добавьте нарезанный картофель, варите 10 минут.",
+      "Добавьте натёртую морковь и нарезанный лук, варите 5-7 минут.",
+      "Натрите сыр и добавьте в суп небольшими порциями, помешивая до растворения.",
+      "Верните курицу в суп, посолите, проварите 3-5 минут. Подавайте с зелёным луком."
+    ]
+  },
+  {
+    "id": "bulgur-s-ovoshami",
+    "name": "Булгур с овощами",
+    "mealType": ["обед", "ужин", "перекус"],
+    "timeMinutes": 30,
+    "servings": 3,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "bulgur", "amount": 250 },
+      { "productId": "kabachok", "amount": 300 },
+      { "productId": "perec-bolgarskiy", "amount": 200 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "morkov", "amount": 80 },
+      { "productId": "maslo-rast", "amount": 25 },
+      { "productId": "sol", "amount": 3 }
+    ],
+    "steps": [
+      "Нарежьте кабачок, перец, лук и морковь небольшими кубиками.",
+      "Обжарьте лук и морковь на масле 5 минут, добавьте кабачок и перец.",
+      "Обжаривайте овощи ещё 5-7 минут.",
+      "Добавьте промытый булгур, залейте водой (1:2), посолите.",
+      "Доведите до кипения, убавьте огонь и томите под крышкой 12-15 минут."
+    ]
+  },
+  {
+    "id": "chechevichnyj-sup",
+    "name": "Чечевичный суп",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 40,
+    "servings": 4,
+    "calories": 240,
+    "ingredients": [
+      { "productId": "chechevica", "amount": 300 },
+      { "productId": "kartofel", "amount": 200 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "luk", "amount": 80 },
+      { "productId": "chesnok", "amount": 10 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "sol", "amount": 3 },
+      { "productId": "paprika", "amount": 3 }
+    ],
+    "steps": [
+      "Промойте чечевицу, залейте водой, доведите до кипения.",
+      "Добавьте нарезанный картофель, варите 10 минут.",
+      "Обжарьте лук, морковь и чеснок на масле с паприкой.",
+      "Добавьте зажарку в суп, посолите.",
+      "Варите ещё 10-12 минут до готовности чечевицы."
+    ]
+  },
+  {
+    "id": "perlovka-s-myasom",
+    "name": "Перловка с мясом",
+    "mealType": ["обед", "ужин"],
+    "timeMinutes": 60,
+    "servings": 3,
+    "calories": 380,
+    "ingredients": [
+      { "productId": "perlovka", "amount": 250 },
+      { "productId": "svinina", "amount": 400 },
+      { "productId": "luk", "amount": 100 },
+      { "productId": "morkov", "amount": 100 },
+      { "productId": "maslo-rast", "amount": 20 },
+      { "productId": "sol", "amount": 3 },
+      { "productId": "lavrushka", "amount": 1 }
+    ],
+    "steps": [
+      "Замочите перловку в воде минимум на 1 час, затем промойте.",
+      "Нарежьте свинину кусочками, обжарьте на масле до румяности.",
+      "Добавьте лук и морковь, обжарьте 5-7 минут.",
+      "Добавьте перловку, залейте водой (1:2,5), посолите, положите лавровый лист.",
+      "Тушите под крышкой на слабом огне 35-40 минут до готовности крупы."
+    ]
+  },
+  {
+    "id": "pshennaya-kasha-na-moloke",
+    "name": "Пшённая каша на молоке",
+    "mealType": ["завтрак"],
+    "timeMinutes": 25,
+    "servings": 2,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "pshenka", "amount": 150 },
+      { "productId": "moloko", "amount": 400 },
+      { "productId": "sahar", "amount": 20 },
+      { "productId": "sol", "amount": 1 },
+      { "productId": "maslo-slivochnoe", "amount": 15 }
+    ],
+    "steps": [
+      "Промойте пшённую крупу горячей водой несколько раз.",
+      "Залейте молоком, добавьте сахар и соль.",
+      "Доведите до кипения, убавьте огонь и варите 15-18 минут, помешивая.",
+      "Заправьте маслом перед подачей."
+    ]
+  },
+  {
+    "id": "buterbrod-s-gorbushej",
+    "name": "Бутерброд с горбушей и яйцом",
+    "mealType": ["завтрак", "перекус"],
+    "timeMinutes": 10,
+    "servings": 2,
+    "calories": 260,
+    "ingredients": [
+      { "productId": "hleb-cherny", "amount": 80 },
+      { "productId": "gorbusha-konserv", "amount": 120 },
+      { "productId": "yaica", "amount": 2 },
+      { "productId": "maslo-slivochnoe", "amount": 20 },
+      { "productId": "zelenyi-luk", "amount": 10 }
+    ],
+    "steps": [
+      "Сварите яйца вкрутую, остудите и нарежьте кружочками.",
+      "Разомните горбушу вилкой, удалив крупные кости.",
+      "Намажьте хлеб маслом.",
+      "Выложите горбушу и яйцо, посыпьте зелёным луком."
+    ]
+  }
+]

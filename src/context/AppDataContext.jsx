@@ -1,0 +1,106 @@
+import { createContext, useContext, useEffect, useMemo, useRef } from 'react'
+import products from '../data/products.json'
+import recipes from '../data/recipes.json'
+import { useLocalStorage } from '../hooks/useLocalStorage.js'
+import { STORAGE_KEYS } from '../lib/storageKeys.js'
+import { buildProductMap, getDefaultPantryState } from '../lib/pricing.js'
+
+const AppDataContext = createContext(null)
+
+export function AppDataProvider({ children }) {
+  const productMap = useMemo(() => buildProductMap(products), [])
+
+  const [customPrices, setCustomPrices] = useLocalStorage(STORAGE_KEYS.customPrices, {})
+  const [haveAtHome, setHaveAtHome] = useLocalStorage(STORAGE_KEYS.haveAtHome, null)
+  const [favorites, setFavorites] = useLocalStorage(STORAGE_KEYS.favorites, [])
+  const [shoppingList, setShoppingList] = useLocalStorage(STORAGE_KEYS.shoppingList, {
+    recipeIds: [],
+    purchased: {},
+  })
+  const [budgetMode, setBudgetMode] = useLocalStorage(STORAGE_KEYS.budgetMode, 'portion')
+
+  // Первый запуск: заполняем «есть дома» дефолтом (соль/специи/масло).
+  const seeded = useRef(false)
+  useEffect(() => {
+    if (haveAtHome === null && !seeded.current) {
+      seeded.current = true
+      setHaveAtHome(getDefaultPantryState(products))
+    }
+  }, [haveAtHome, setHaveAtHome])
+
+  function setCustomPrice(productId, price) {
+    setCustomPrices((prev) => ({ ...prev, [productId]: price }))
+  }
+
+  function resetCustomPrice(productId) {
+    setCustomPrices((prev) => {
+      const next = { ...prev }
+      delete next[productId]
+      return next
+    })
+  }
+
+  function setHaveAtHomeValue(productId, value) {
+    setHaveAtHome((prev) => ({ ...(prev || {}), [productId]: value }))
+  }
+
+  function toggleFavorite(recipeId) {
+    setFavorites((prev) =>
+      prev.includes(recipeId) ? prev.filter((id) => id !== recipeId) : [...prev, recipeId],
+    )
+  }
+
+  function addRecipeToShoppingList(recipeId) {
+    setShoppingList((prev) =>
+      prev.recipeIds.includes(recipeId)
+        ? prev
+        : { ...prev, recipeIds: [...prev.recipeIds, recipeId] },
+    )
+  }
+
+  function removeRecipeFromShoppingList(recipeId) {
+    setShoppingList((prev) => ({
+      ...prev,
+      recipeIds: prev.recipeIds.filter((id) => id !== recipeId),
+    }))
+  }
+
+  function togglePurchased(productId) {
+    setShoppingList((prev) => ({
+      ...prev,
+      purchased: { ...prev.purchased, [productId]: !prev.purchased[productId] },
+    }))
+  }
+
+  function clearShoppingList() {
+    setShoppingList({ recipeIds: [], purchased: {} })
+  }
+
+  const value = {
+    products,
+    recipes,
+    productMap,
+    customPrices,
+    setCustomPrice,
+    resetCustomPrice,
+    haveAtHome: haveAtHome || {},
+    setHaveAtHomeValue,
+    favorites,
+    toggleFavorite,
+    shoppingList,
+    addRecipeToShoppingList,
+    removeRecipeFromShoppingList,
+    togglePurchased,
+    clearShoppingList,
+    budgetMode,
+    setBudgetMode,
+  }
+
+  return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>
+}
+
+export function useAppData() {
+  const ctx = useContext(AppDataContext)
+  if (!ctx) throw new Error('useAppData must be used within AppDataProvider')
+  return ctx
+}

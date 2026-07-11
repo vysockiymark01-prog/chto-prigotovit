@@ -1,0 +1,192 @@
+:root {
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0f2f5;
+  --color-text: #14181f;
+  --color-text-muted: #6b7280;
+  --color-border: #e3e6ea;
+  --color-primary: #15803d;
+  --color-primary-contrast: #ffffff;
+  --color-accent: #f97316;
+  --color-danger: #dc2626;
+  --color-heart: #e11d48;
+
+  --badge-green-bg: #dcfce7;
+  --badge-green-text: #15803d;
+  --badge-gray-bg: #eef0f3;
+  --badge-gray-text: #525a68;
+  --badge-missing-bg: #fef3c7;
+  --badge-missing-text: #92400e;
+
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  --bottom-nav-height: 60px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f1115;
+    --color-surface: #171a21;
+    --color-surface-alt: #1e222b;
+    --color-text: #f1f2f4;
+    --color-text-muted: #9aa1ac;
+    --color-border: #2a2f3a;
+    --color-primary: #34c471;
+    --color-primary-contrast: #06280f;
+    --color-accent: #fb923c;
+    --color-danger: #f87171;
+    --color-heart: #fb7185;
+
+    --badge-green-bg: #123321;
+    --badge-green-text: #4ade80;
+    --badge-gray-bg: #23272f;
+    --badge-gray-text: #9aa1ac;
+    --badge-missing-bg: #3a2c0f;
+    --badge-missing-text: #fbbf24;
+
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0f1115;
+  --color-surface: #171a21;
+  --color-surface-alt: #1e222b;
+  --color-text: #f1f2f4;
+  --color-text-muted: #9aa1ac;
+  --color-border: #2a2f3a;
+  --color-primary: #34c471;
+  --color-primary-contrast: #06280f;
+  --color-accent: #fb923c;
+  --color-danger: #f87171;
+  --color-heart: #fb7185;
+
+  --badge-green-bg: #123321;
+  --badge-green-text: #4ade80;
+  --badge-gray-bg: #23272f;
+  --badge-gray-text: #9aa1ac;
+  --badge-missing-bg: #3a2c0f;
+  --badge-missing-text: #fbbf24;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0f2f5;
+  --color-text: #14181f;
+  --color-text-muted: #6b7280;
+  --color-border: #e3e6ea;
+  --color-primary: #15803d;
+  --color-primary-contrast: #ffffff;
+  --color-accent: #f97316;
+  --color-danger: #dc2626;
+  --color-heart: #e11d48;
+
+  --badge-green-bg: #dcfce7;
+  --badge-green-text: #15803d;
+  --badge-gray-bg: #eef0f3;
+  --badge-gray-text: #525a68;
+  --badge-missing-bg: #fef3c7;
+  --badge-missing-text: #92400e;
+
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  min-height: 100%;
+  padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom) + 12px);
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 16px 8px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 4px 0 16px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge--accurate {
+  background: var(--badge-green-bg);
+  color: var(--badge-green-text);
+}
+
+.badge--approx {
+  background: var(--badge-gray-bg);
+  color: var(--badge-gray-text);
+}
+
+.badge--missing {
+  background: var(--badge-missing-bg);
+  color: var(--badge-missing-text);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 48px 16px;
+}

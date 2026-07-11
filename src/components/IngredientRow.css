@@ -1,0 +1,70 @@
+.ingredient-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ingredient-row:last-child {
+  border-bottom: none;
+}
+
+.ingredient-row--missing {
+  background: color-mix(in srgb, var(--badge-missing-bg) 40%, transparent);
+  margin: 0 -12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+}
+
+.ingredient-row__main {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient-row__name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ingredient-row__amount {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.ingredient-row__price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ingredient-row__price-btn {
+  background: var(--color-surface-alt);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 6px 10px;
+  font-size: 13px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.ingredient-row__input {
+  width: 90px;
+  padding: 6px 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-primary);
+  font-size: 13px;
+}
+
+.ingredient-row__reset {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}

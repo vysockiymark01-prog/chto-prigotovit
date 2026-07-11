@@ -1,0 +1,47 @@
+.pantry-hint {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 16px;
+}
+
+.pantry-group {
+  margin-bottom: 16px;
+}
+
+.pantry-group__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  margin: 0 0 6px 4px;
+}
+
+.pantry-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 12px;
+}
+
+.pantry-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pantry-item:last-child {
+  border-bottom: none;
+}
+
+.pantry-item__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pantry-item__label input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+}

@@ -1,0 +1,110 @@
+.shopping-recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.shopping-recipe-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 6px 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+.shopping-recipe-chip a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.shopping-recipe-chip button {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.shopping-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 4px 12px;
+}
+
+.shopping-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.shopping-row:last-child {
+  border-bottom: none;
+}
+
+.shopping-row--purchased .shopping-row__name {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.shopping-row__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.shopping-row__label input {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: var(--color-primary);
+}
+
+.shopping-row__name {
+  font-size: 14px;
+}
+
+.shopping-row__amount {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.shopping-row__cost {
+  flex: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.shopping-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 4px;
+  margin-bottom: 16px;
+  border-top: 2px solid var(--color-border);
+}
+
+.clear-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-danger);
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
