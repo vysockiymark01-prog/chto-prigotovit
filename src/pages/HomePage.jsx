@@ -82,7 +82,12 @@ export default function HomePage() {
   }, [sorted, baseFiltered, budgetNumber, budgetMode, productMap, customPrices, haveAtHome])
 
   function handleInventDish() {
-    const pool = sorted.length > 0 ? sorted : baseFiltered.length > 0 ? baseFiltered : recipes
+    // В приоритете — рецепты, реально укладывающиеся в бюджет. Если таких нет,
+    // берём ближайший по цене (как в пустом состоянии), а не случайный из всех подряд.
+    let pool = sorted
+    if (pool.length === 0 && nearestSuggestion) pool = [nearestSuggestion]
+    if (pool.length === 0) pool = baseFiltered
+    if (pool.length === 0) pool = recipes
     const pick = pool[Math.floor(Math.random() * pool.length)]
     if (pick) navigate(`/recipe/${pick.id}`)
   }

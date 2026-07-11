@@ -18,6 +18,7 @@
   { "id": "kurica-golen", "name": "Куриные голени", "unit": "г", "packSize": 1000, "packPrice": 220, "category": "мясо" },
   { "id": "kurica-bedro", "name": "Куриные бёдра", "unit": "г", "packSize": 1000, "packPrice": 260, "category": "мясо" },
   { "id": "kurica-celaya", "name": "Курица целая", "unit": "г", "packSize": 1500, "packPrice": 380, "category": "мясо" },
+  { "id": "kurica-krylya", "name": "Куриные крылья", "unit": "г", "packSize": 1000, "packPrice": 260, "category": "мясо" },
   { "id": "svinina", "name": "Свинина (шея)", "unit": "г", "packSize": 1000, "packPrice": 480, "category": "мясо" },
   { "id": "govyadina", "name": "Говядина (мякоть)", "unit": "г", "packSize": 1000, "packPrice": 650, "category": "мясо" },
   { "id": "farsh-svin-gov", "name": "Фарш свино-говяжий", "unit": "г", "packSize": 500, "packPrice": 280, "category": "мясо" },
@@ -48,6 +49,7 @@
   { "id": "kapusta", "name": "Капуста белокочанная", "unit": "г", "packSize": 1000, "packPrice": 35, "category": "овощи" },
   { "id": "pomidory", "name": "Помидоры", "unit": "г", "packSize": 1000, "packPrice": 160, "category": "овощи" },
   { "id": "ogurcy", "name": "Огурцы", "unit": "г", "packSize": 1000, "packPrice": 145, "category": "овощи" },
+  { "id": "ogurcy-solenye", "name": "Огурцы солёные", "unit": "г", "packSize": 500, "packPrice": 130, "category": "овощи" },
   { "id": "svekla", "name": "Свёкла", "unit": "г", "packSize": 1000, "packPrice": 50, "category": "овощи" },
   { "id": "chesnok", "name": "Чеснок", "unit": "г", "packSize": 100, "packPrice": 60, "category": "овощи" },
   { "id": "perec-bolgarskiy", "name": "Перец болгарский", "unit": "г", "packSize": 1000, "packPrice": 210, "category": "овощи" },
@@ -82,5 +84,7 @@
   { "id": "suhari-panirovochnye", "name": "Сухари панировочные", "unit": "г", "packSize": 300, "packPrice": 75, "category": "выпечка" },
 
   { "id": "konservirovanniy-goroshek", "name": "Горошек консервированный", "unit": "г", "packSize": 400, "packPrice": 90, "category": "консервы" },
-  { "id": "kukuruza-konserv", "name": "Кукуруза консервированная", "unit": "г", "packSize": 340, "packPrice": 95, "category": "консервы" }
+  { "id": "kukuruza-konserv", "name": "Кукуруза консервированная", "unit": "г", "packSize": 340, "packPrice": 95, "category": "консервы" },
+
+  { "id": "yabloki", "name": "Яблоки", "unit": "г", "packSize": 1000, "packPrice": 110, "category": "фрукты" }
 ]
