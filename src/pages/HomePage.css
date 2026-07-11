@@ -58,6 +58,24 @@
   font-weight: 600;
 }
 
+.invent-dish-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-primary);
+  background: var(--badge-green-bg);
+  color: var(--badge-green-text);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.invent-dish-btn:active {
+  transform: scale(0.99);
+}
+
 .filters-toggle {
   display: block;
   width: 100%;

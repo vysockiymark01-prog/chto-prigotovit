@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ThemeToggle from '../components/ThemeToggle.jsx'
 import RecipeCard from '../components/RecipeCard.jsx'
 import { useAppData } from '../context/AppDataContext.jsx'
@@ -22,6 +23,7 @@ const SORT_OPTIONS = [
 export default function HomePage() {
   const { recipes, productMap, customPrices, haveAtHome, budgetMode, setBudgetMode } =
     useAppData()
+  const navigate = useNavigate()
 
   const [budget, setBudget] = useState('')
   const [mealType, setMealType] = useState('Все')
@@ -79,6 +81,12 @@ export default function HomePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sorted, baseFiltered, budgetNumber, budgetMode, productMap, customPrices, haveAtHome])
 
+  function handleInventDish() {
+    const pool = sorted.length > 0 ? sorted : baseFiltered.length > 0 ? baseFiltered : recipes
+    const pick = pool[Math.floor(Math.random() * pool.length)]
+    if (pick) navigate(`/recipe/${pick.id}`)
+  }
+
   return (
     <div className="page">
       <div className="home-header">
@@ -116,6 +124,10 @@ export default function HomePage() {
           </button>
         ))}
       </div>
+
+      <button type="button" className="invent-dish-btn" onClick={handleInventDish}>
+        🎲 Придумать блюдо
+      </button>
 
       <button
         type="button"
