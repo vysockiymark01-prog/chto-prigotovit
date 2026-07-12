@@ -5,4 +5,5 @@ export const STORAGE_KEYS = {
   favorites: 'cp:favorites',
   shoppingList: 'cp:shoppingList',
   budgetMode: 'cp:budgetMode',
+  customProducts: 'cp:customProducts',
 }

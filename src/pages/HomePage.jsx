@@ -4,6 +4,7 @@ import ThemeToggle from '../components/ThemeToggle.jsx'
 import RecipeCard from '../components/RecipeCard.jsx'
 import { useAppData } from '../context/AppDataContext.jsx'
 import { calcPortionCost, calcShoppingCost, caloriesPerRuble } from '../lib/pricing.js'
+import { findProductMatch } from '../lib/productSearch.js'
 import './HomePage.css'
 
 const MEAL_TYPES = ['Все', 'Завтрак', 'Обед', 'Ужин', 'Перекус']
@@ -20,9 +21,80 @@ const SORT_OPTIONS = [
   { value: 'cheapest', label: 'Дешевле' },
 ]
 
+function UnmatchedIngredientRow({ name, onAdd, onDismiss }) {
+  const [price, setPrice] = useState('')
+  const [packSize, setPackSize] = useState('100')
+  const [unit, setUnit] = useState('г')
+
+  function handleUnitChange(nextUnit) {
+    setUnit(nextUnit)
+    setPackSize(nextUnit === 'шт' ? '1' : '100')
+  }
+
+  function handleAdd() {
+    const priceNum = Number(String(price).replace(',', '.'))
+    if (!Number.isFinite(priceNum) || priceNum <= 0) return
+    onAdd({ name, unit, packSize, packPrice: priceNum })
+  }
+
+  return (
+    <div className="unmatched-ingredient">
+      <span className="unmatched-ingredient__name">«{name}» нет в базе — добавить?</span>
+      <div className="unmatched-ingredient__form">
+        <input
+          type="number"
+          inputMode="decimal"
+          min="0"
+          placeholder="Цена, ₽"
+          className="unmatched-ingredient__price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+        <span className="unmatched-ingredient__za">за</span>
+        <input
+          type="number"
+          inputMode="numeric"
+          min="1"
+          className="unmatched-ingredient__packsize"
+          value={packSize}
+          onChange={(e) => setPackSize(e.target.value)}
+        />
+        <select
+          className="unmatched-ingredient__unit"
+          value={unit}
+          onChange={(e) => handleUnitChange(e.target.value)}
+        >
+          <option value="г">г</option>
+          <option value="мл">мл</option>
+          <option value="шт">шт</option>
+        </select>
+        <button type="button" className="unmatched-ingredient__add" onClick={handleAdd}>
+          Добавить
+        </button>
+        <button
+          type="button"
+          className="unmatched-ingredient__dismiss"
+          onClick={onDismiss}
+          aria-label="Не добавлять"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function HomePage() {
-  const { recipes, products, productMap, customPrices, haveAtHome, budgetMode, setBudgetMode } =
-    useAppData()
+  const {
+    recipes,
+    products,
+    productMap,
+    addCustomProduct,
+    customPrices,
+    haveAtHome,
+    budgetMode,
+    setBudgetMode,
+  } = useAppData()
   const navigate = useNavigate()
 
   const [budget, setBudget] = useState('')
@@ -32,6 +104,7 @@ export default function HomePage() {
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [ingredientInput, setIngredientInput] = useState('')
   const [selectedIngredients, setSelectedIngredients] = useState([])
+  const [unmatchedNames, setUnmatchedNames] = useState([])
 
   const budgetNumber = budget === '' ? null : Number(budget)
 
@@ -48,22 +121,44 @@ export default function HomePage() {
           0,
         )
 
-  const productByName = useMemo(() => {
-    const map = new Map()
-    products.forEach((p) => map.set(p.name.toLowerCase(), p.id))
-    return map
-  }, [products])
+  function addIngredient(rawInput) {
+    // Поддерживаем ввод сразу нескольких продуктов через запятую/точку с запятой —
+    // раньше искали совпадение по всей строке целиком, и она просто стиралась.
+    // Поиск не требует точного названия («курица» находит «Куриное филе»).
+    const names = rawInput
+      .split(/[,;\n]/)
+      .map((s) => s.trim())
+      .filter(Boolean)
+    if (names.length === 0) return
 
-  function addIngredient(name) {
-    const id = productByName.get(name.trim().toLowerCase())
-    if (id && !selectedIngredients.includes(id)) {
-      setSelectedIngredients((prev) => [...prev, id])
+    const foundIds = []
+    const notFound = []
+    for (const name of names) {
+      const id = findProductMatch(name, products)
+      if (id) foundIds.push(id)
+      else notFound.push(name)
+    }
+    if (foundIds.length > 0) {
+      setSelectedIngredients((prev) => [...new Set([...prev, ...foundIds])])
+    }
+    if (notFound.length > 0) {
+      setUnmatchedNames((prev) => [...new Set([...prev, ...notFound])])
     }
     setIngredientInput('')
   }
 
   function removeIngredient(id) {
     setSelectedIngredients((prev) => prev.filter((x) => x !== id))
+  }
+
+  function handleAddCustomIngredient(name, { unit, packSize, packPrice }) {
+    const id = addCustomProduct({ name, unit, packSize, packPrice })
+    setSelectedIngredients((prev) => [...prev, id])
+    setUnmatchedNames((prev) => prev.filter((n) => n !== name))
+  }
+
+  function dismissUnmatched(name) {
+    setUnmatchedNames((prev) => prev.filter((n) => n !== name))
   }
 
   const baseFiltered = useMemo(() => {
@@ -222,6 +317,18 @@ export default function HomePage() {
                   >
                     {productMap[id]?.name} ✕
                   </button>
+                ))}
+              </div>
+            )}
+            {unmatchedNames.length > 0 && (
+              <div className="unmatched-ingredient-list">
+                {unmatchedNames.map((name) => (
+                  <UnmatchedIngredientRow
+                    key={name}
+                    name={name}
+                    onAdd={(data) => handleAddCustomIngredient(name, data)}
+                    onDismiss={() => dismissUnmatched(name)}
+                  />
                 ))}
               </div>
             )}

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useRef } from 'react'
-import products from '../data/products.json'
+import staticProducts from '../data/products.json'
 import recipes from '../data/recipes.json'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import { STORAGE_KEYS } from '../lib/storageKeys.js'
@@ -7,8 +7,20 @@ import { buildProductMap, getDefaultPantryState } from '../lib/pricing.js'
 
 const AppDataContext = createContext(null)
 
+function makeCustomProductId(name) {
+  const slug = name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-zа-яё0-9]+/gi, '-')
+    .replace(/^-+|-+$/g, '')
+  return `custom-${slug || 'product'}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`
+}
+
 export function AppDataProvider({ children }) {
-  const productMap = useMemo(() => buildProductMap(products), [])
+  const [customProducts, setCustomProducts] = useLocalStorage(STORAGE_KEYS.customProducts, [])
+
+  const products = useMemo(() => [...staticProducts, ...customProducts], [customProducts])
+  const productMap = useMemo(() => buildProductMap(products), [products])
 
   const [customPrices, setCustomPrices] = useLocalStorage(STORAGE_KEYS.customPrices, {})
   const [haveAtHome, setHaveAtHome] = useLocalStorage(STORAGE_KEYS.haveAtHome, null)
@@ -18,6 +30,58 @@ export function AppDataProvider({ children }) {
     purchased: {},
   })
   const [budgetMode, setBudgetMode] = useLocalStorage(STORAGE_KEYS.budgetMode, 'portion')
+
+  function addCustomProduct({ name, unit, packSize, packPrice }) {
+    const id = makeCustomProductId(name)
+    const product = {
+      id,
+      name: name.trim(),
+      unit,
+      packSize: Number(packSize) || 1,
+      packPrice: Number(packPrice) || 0,
+      category: 'Свои продукты',
+      custom: true,
+    }
+    setCustomProducts((prev) => [...prev, product])
+    return id
+  }
+
+  function removeCustomProduct(id) {
+    setCustomProducts((prev) => prev.filter((p) => p.id !== id))
+    setCustomPrices((prev) => {
+      if (!(id in prev)) return prev
+      const next = { ...prev }
+      delete next[id]
+      return next
+    })
+  }
+
+  function importCustomProducts(list) {
+    if (!Array.isArray(list)) return 0
+    let added = 0
+    setCustomProducts((prev) => {
+      const existingNames = new Set(products.map((p) => p.name.toLowerCase()))
+      const next = [...prev]
+      for (const item of list) {
+        if (!item || typeof item.name !== 'string' || !item.name.trim()) continue
+        if (existingNames.has(item.name.toLowerCase())) continue
+        const unit = ['г', 'мл', 'шт'].includes(item.unit) ? item.unit : 'шт'
+        next.push({
+          id: makeCustomProductId(item.name),
+          name: item.name.trim(),
+          unit,
+          packSize: Number(item.packSize) || 1,
+          packPrice: Number(item.packPrice) || 0,
+          category: 'Свои продукты',
+          custom: true,
+        })
+        existingNames.add(item.name.toLowerCase())
+        added += 1
+      }
+      return next
+    })
+    return added
+  }
 
   // Первый запуск: заполняем «есть дома» дефолтом (соль/специи/масло).
   const seeded = useRef(false)
@@ -80,6 +144,9 @@ export function AppDataProvider({ children }) {
     products,
     recipes,
     productMap,
+    addCustomProduct,
+    removeCustomProduct,
+    importCustomProducts,
     customPrices,
     setCustomPrice,
     resetCustomPrice,

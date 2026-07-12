@@ -4,7 +4,7 @@ import { getPackPrice, hasCustomPrice, formatRub } from '../lib/pricing.js'
 import './ProductPriceRow.css'
 
 export default function ProductPriceRow({ product }) {
-  const { customPrices, setCustomPrice, resetCustomPrice } = useAppData()
+  const { customPrices, setCustomPrice, resetCustomPrice, removeCustomProduct } = useAppData()
   const [editing, setEditing] = useState(false)
   const [draft, setDraft] = useState('')
 
@@ -52,13 +52,22 @@ export default function ProductPriceRow({ product }) {
             {formatRub(price)} ₽
           </button>
         )}
-        {isCustom && !editing && (
+        {isCustom && !editing && !product.custom && (
           <button
             type="button"
             className="product-row__reset"
             onClick={() => resetCustomPrice(product.id)}
           >
             сбросить к средней
+          </button>
+        )}
+        {product.custom && !editing && (
+          <button
+            type="button"
+            className="product-row__reset"
+            onClick={() => removeCustomProduct(product.id)}
+          >
+            удалить продукт
           </button>
         )}
       </div>
