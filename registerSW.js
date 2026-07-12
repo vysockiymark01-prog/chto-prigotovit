@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/chto-prigotovit/sw.js', { scope: '/chto-prigotovit/' })})}
