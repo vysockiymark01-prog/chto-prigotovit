@@ -183,7 +183,9 @@ export default function HomePage() {
         onClick={() => setFiltersOpen((v) => !v)}
         aria-expanded={filtersOpen}
       >
-        Фильтры {filtersOpen ? '▲' : '▼'}
+        Фильтры и что есть под рукой
+        {selectedIngredients.length > 0 ? ` (${selectedIngredients.length})` : ''}{' '}
+        {filtersOpen ? '▲' : '▼'}
       </button>
 
       {filtersOpen && (
