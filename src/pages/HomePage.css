@@ -109,6 +109,22 @@
   flex-wrap: wrap;
 }
 
+.ingredient-input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.ingredient-input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
 .chip {
   padding: 6px 12px;
   border-radius: var(--radius-full);

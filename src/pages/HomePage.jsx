@@ -21,7 +21,7 @@ const SORT_OPTIONS = [
 ]
 
 export default function HomePage() {
-  const { recipes, productMap, customPrices, haveAtHome, budgetMode, setBudgetMode } =
+  const { recipes, products, productMap, customPrices, haveAtHome, budgetMode, setBudgetMode } =
     useAppData()
   const navigate = useNavigate()
 
@@ -30,6 +30,8 @@ export default function HomePage() {
   const [timeLimit, setTimeLimit] = useState(0)
   const [sortMode, setSortMode] = useState('satiety')
   const [filtersOpen, setFiltersOpen] = useState(false)
+  const [ingredientInput, setIngredientInput] = useState('')
+  const [selectedIngredients, setSelectedIngredients] = useState([])
 
   const budgetNumber = budget === '' ? null : Number(budget)
 
@@ -38,13 +40,41 @@ export default function HomePage() {
       ? calcShoppingCost(recipe, productMap, customPrices, haveAtHome)
       : calcPortionCost(recipe, productMap, customPrices)
 
+  const matchCount = (recipe) =>
+    selectedIngredients.length === 0
+      ? 0
+      : recipe.ingredients.reduce(
+          (n, ing) => n + (selectedIngredients.includes(ing.productId) ? 1 : 0),
+          0,
+        )
+
+  const productByName = useMemo(() => {
+    const map = new Map()
+    products.forEach((p) => map.set(p.name.toLowerCase(), p.id))
+    return map
+  }, [products])
+
+  function addIngredient(name) {
+    const id = productByName.get(name.trim().toLowerCase())
+    if (id && !selectedIngredients.includes(id)) {
+      setSelectedIngredients((prev) => [...prev, id])
+    }
+    setIngredientInput('')
+  }
+
+  function removeIngredient(id) {
+    setSelectedIngredients((prev) => prev.filter((x) => x !== id))
+  }
+
   const baseFiltered = useMemo(() => {
     return recipes.filter((r) => {
       if (mealType !== 'Все' && !r.mealType.includes(mealType.toLowerCase())) return false
       if (timeLimit > 0 && r.timeMinutes > timeLimit) return false
+      if (selectedIngredients.length > 0 && matchCount(r) === 0) return false
       return true
     })
-  }, [recipes, mealType, timeLimit])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [recipes, mealType, timeLimit, selectedIngredients])
 
   const withinBudget = useMemo(() => {
     if (budgetNumber === null || budgetNumber <= 0) return baseFiltered
@@ -55,6 +85,10 @@ export default function HomePage() {
   const sorted = useMemo(() => {
     const list = [...withinBudget]
     list.sort((a, b) => {
+      if (selectedIngredients.length > 0) {
+        const diff = matchCount(b) - matchCount(a)
+        if (diff !== 0) return diff
+      }
       switch (sortMode) {
         case 'fastest':
           return a.timeMinutes - b.timeMinutes
@@ -71,7 +105,16 @@ export default function HomePage() {
     })
     return list
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [withinBudget, sortMode, budgetNumber, budgetMode, productMap, customPrices, haveAtHome])
+  }, [
+    withinBudget,
+    sortMode,
+    budgetNumber,
+    budgetMode,
+    productMap,
+    customPrices,
+    haveAtHome,
+    selectedIngredients,
+  ])
 
   const nearestSuggestion = useMemo(() => {
     if (sorted.length > 0 || baseFiltered.length === 0 || budgetNumber === null) return null
@@ -146,6 +189,43 @@ export default function HomePage() {
       {filtersOpen && (
         <div className="filters-panel card">
           <div className="filters-group">
+            <span className="filters-group__label">Что есть под рукой</span>
+            <input
+              type="text"
+              list="product-names"
+              className="ingredient-input"
+              placeholder="Например, курица"
+              value={ingredientInput}
+              onChange={(e) => setIngredientInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                  addIngredient(ingredientInput)
+                }
+              }}
+            />
+            <datalist id="product-names">
+              {products.map((p) => (
+                <option key={p.id} value={p.name} />
+              ))}
+            </datalist>
+            {selectedIngredients.length > 0 && (
+              <div className="filters-chip-row">
+                {selectedIngredients.map((id) => (
+                  <button
+                    key={id}
+                    type="button"
+                    className="chip chip--active"
+                    onClick={() => removeIngredient(id)}
+                  >
+                    {productMap[id]?.name} ✕
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="filters-group">
             <span className="filters-group__label">Время готовки</span>
             <div className="filters-chip-row">
               {TIME_OPTIONS.map((opt) => (
@@ -205,6 +285,13 @@ export default function HomePage() {
         Цены средние по сетевым магазинам и могут отличаться от вашего магазина. Вы можете
         указать свои цены.
       </p>
+
+      {selectedIngredients.length > 0 && (
+        <p className="price-disclaimer">
+          Показаны рецепты, где есть хотя бы один из выбранных продуктов — сначала с наибольшим
+          совпадением.
+        </p>
+      )}
 
       {sorted.length > 0 ? (
         <div className="recipe-feed">
