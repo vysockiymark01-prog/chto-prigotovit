@@ -48,7 +48,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,json}'],
+        globIgnores: ['privacy.html'],
         navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/^\/chto-prigotovit\/privacy\.html$/],
       },
       devOptions: {
         enabled: true,
