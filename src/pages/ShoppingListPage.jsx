@@ -1,8 +1,16 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppData } from '../context/AppDataContext.jsx'
 import { aggregateShoppingList, formatRub } from '../lib/pricing.js'
 import './ShoppingListPage.css'
+
+function buildShareText(rows, total) {
+  const lines = rows.map(
+    (row) => `• ${row.product.name} — ${row.amount} ${row.product.unit} (${row.packs} уп.)`,
+  )
+  lines.push('', `Итого: ~${formatRub(total)} ₽`)
+  return ['Список покупок ("Что приготовить?")', '', ...lines].join('\n')
+}
 
 export default function ShoppingListPage() {
   const {
@@ -31,6 +39,27 @@ export default function ShoppingListPage() {
   )
 
   const total = rows.reduce((sum, row) => sum + row.cost, 0)
+  const [shareStatus, setShareStatus] = useState('')
+
+  async function handleShare() {
+    const text = buildShareText(rows, total)
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Список покупок', text })
+      } catch {
+        // пользователь закрыл диалог — ничего не делаем
+      }
+      return
+    }
+    try {
+      await navigator.clipboard.writeText(text)
+      setShareStatus('Скопировано в буфер обмена')
+      setTimeout(() => setShareStatus(''), 2500)
+    } catch {
+      setShareStatus('Не удалось скопировать')
+      setTimeout(() => setShareStatus(''), 2500)
+    }
+  }
 
   if (addedRecipes.length === 0) {
     return (
@@ -100,6 +129,13 @@ export default function ShoppingListPage() {
         <span>Итого</span>
         <span className="shopping-total__value">{formatRub(total)} ₽</span>
       </div>
+
+      {rows.length > 0 && (
+        <button type="button" className="invent-dish-btn" onClick={handleShare}>
+          📤 Поделиться списком
+        </button>
+      )}
+      {shareStatus && <p className="price-disclaimer">{shareStatus}</p>}
 
       <button type="button" className="clear-btn" onClick={clearShoppingList}>
         Очистить список

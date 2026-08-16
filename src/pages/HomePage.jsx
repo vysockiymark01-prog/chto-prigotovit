@@ -5,6 +5,7 @@ import RecipeCard from '../components/RecipeCard.jsx'
 import { useAppData } from '../context/AppDataContext.jsx'
 import { calcPortionCost, calcShoppingCost, caloriesPerRuble } from '../lib/pricing.js'
 import { findProductMatch } from '../lib/productSearch.js'
+import { DIET_FILTERS, recipeMatchesDiet } from '../lib/dietTags.js'
 import './HomePage.css'
 
 const MEAL_TYPES = ['Все', 'Завтрак', 'Обед', 'Ужин', 'Перекус']
@@ -94,6 +95,8 @@ export default function HomePage() {
     haveAtHome,
     budgetMode,
     setBudgetMode,
+    dietFilters,
+    toggleDietFilter,
   } = useAppData()
   const navigate = useNavigate()
 
@@ -166,10 +169,11 @@ export default function HomePage() {
       if (mealType !== 'Все' && !r.mealType.includes(mealType.toLowerCase())) return false
       if (timeLimit > 0 && r.timeMinutes > timeLimit) return false
       if (selectedIngredients.length > 0 && matchCount(r) === 0) return false
+      if (!recipeMatchesDiet(r, productMap, dietFilters)) return false
       return true
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recipes, mealType, timeLimit, selectedIngredients])
+  }, [recipes, mealType, timeLimit, selectedIngredients, dietFilters, productMap])
 
   const withinBudget = useMemo(() => {
     if (budgetNumber === null || budgetNumber <= 0) return baseFiltered
@@ -279,7 +283,9 @@ export default function HomePage() {
         aria-expanded={filtersOpen}
       >
         Фильтры и что есть под рукой
-        {selectedIngredients.length > 0 ? ` (${selectedIngredients.length})` : ''}{' '}
+        {selectedIngredients.length + dietFilters.length > 0
+          ? ` (${selectedIngredients.length + dietFilters.length})`
+          : ''}{' '}
         {filtersOpen ? '▲' : '▼'}
       </button>
 
@@ -345,6 +351,22 @@ export default function HomePage() {
                   onClick={() => setTimeLimit(opt.value)}
                 >
                   {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filters-group">
+            <span className="filters-group__label">Диета и ограничения</span>
+            <div className="filters-chip-row">
+              {DIET_FILTERS.map((f) => (
+                <button
+                  key={f.key}
+                  type="button"
+                  className={'chip' + (dietFilters.includes(f.key) ? ' chip--active' : '')}
+                  onClick={() => toggleDietFilter(f.key)}
+                >
+                  {f.icon} {f.label}
                 </button>
               ))}
             </div>

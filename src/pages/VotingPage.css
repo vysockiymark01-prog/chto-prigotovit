@@ -1,0 +1,130 @@
+.voting-add {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.voting-add__name,
+.voting-add__author {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 15px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.voting-add__btn {
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  font-weight: 600;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.voting-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.voting-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.voting-entry--highlighted {
+  background: var(--badge-green-bg);
+  transform: scale(1.02);
+}
+
+.voting-entry--winner {
+  border: 2px solid var(--color-primary);
+}
+
+.voting-entry__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.voting-entry__name {
+  font-weight: 600;
+}
+
+.voting-entry__author {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.voting-entry__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voting-entry__vote {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.voting-entry__remove {
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
+.voting-result {
+  margin-top: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+.voting-result__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.voting-result__joke {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.voting-history {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 4px 14px;
+}
+
+.voting-history__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+}
+
+.voting-history__row:last-child {
+  border-bottom: none;
+}
+
+.voting-history__date {
+  color: var(--color-text-muted);
+}

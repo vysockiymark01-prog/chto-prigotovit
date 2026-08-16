@@ -3,10 +3,11 @@ import './BottomNav.css'
 
 const TABS = [
   { to: '/', label: 'Подбор', icon: '🍽️', end: true },
+  { to: '/voting', label: 'Голосуем', icon: '🗳️' },
   { to: '/favorites', label: 'Избранное', icon: '❤️' },
   { to: '/shopping-list', label: 'Покупки', icon: '🛒' },
   { to: '/pantry', label: 'Есть дома', icon: '🏠' },
-  { to: '/products', label: 'Цены', icon: '💰' },
+  { to: '/more', label: 'Ещё', icon: '⋯' },
 ]
 
 export default function BottomNav() {

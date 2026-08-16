@@ -6,4 +6,9 @@ export const STORAGE_KEYS = {
   shoppingList: 'cp:shoppingList',
   budgetMode: 'cp:budgetMode',
   customProducts: 'cp:customProducts',
+  cookHistory: 'cp:cookHistory',
+  dietFilters: 'cp:dietFilters',
+  reminderSettings: 'cp:reminderSettings',
+  votingState: 'cp:votingState',
+  votingHistory: 'cp:votingHistory',
 }

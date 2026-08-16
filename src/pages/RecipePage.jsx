@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { useAppData } from '../context/AppDataContext.jsx'
 import {
   calcPortionCost,
@@ -22,7 +23,13 @@ export default function RecipePage() {
     shoppingList,
     addRecipeToShoppingList,
     removeRecipeFromShoppingList,
+    logCooked,
   } = useAppData()
+  const [cookedJustNow, setCookedJustNow] = useState(false)
+
+  useEffect(() => {
+    setCookedJustNow(false)
+  }, [id])
 
   const recipe = recipes.find((r) => r.id === id)
 
@@ -94,6 +101,17 @@ export default function RecipePage() {
           }
         >
           {inShoppingList ? '🛒 В списке покупок' : '🛒 Добавить в список покупок'}
+        </button>
+        <button
+          type="button"
+          className={'action-btn' + (cookedJustNow ? ' action-btn--active' : '')}
+          onClick={() => {
+            logCooked(recipe.id)
+            setCookedJustNow(true)
+          }}
+          disabled={cookedJustNow}
+        >
+          {cookedJustNow ? '✅ Записали в статистику' : '👩‍🍳 Готовили это'}
         </button>
       </div>
 

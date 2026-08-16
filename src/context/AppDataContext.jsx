@@ -3,7 +3,12 @@ import staticProducts from '../data/products.json'
 import recipes from '../data/recipes.json'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import { STORAGE_KEYS } from '../lib/storageKeys.js'
-import { buildProductMap, getDefaultPantryState } from '../lib/pricing.js'
+import {
+  buildProductMap,
+  getDefaultPantryState,
+  calcPortionCost,
+  calcShoppingCost,
+} from '../lib/pricing.js'
 
 const AppDataContext = createContext(null)
 
@@ -30,6 +35,8 @@ export function AppDataProvider({ children }) {
     purchased: {},
   })
   const [budgetMode, setBudgetMode] = useLocalStorage(STORAGE_KEYS.budgetMode, 'portion')
+  const [cookHistory, setCookHistory] = useLocalStorage(STORAGE_KEYS.cookHistory, [])
+  const [dietFilters, setDietFilters] = useLocalStorage(STORAGE_KEYS.dietFilters, [])
 
   function addCustomProduct({ name, unit, packSize, packPrice }) {
     const id = makeCustomProductId(name)
@@ -140,6 +147,29 @@ export function AppDataProvider({ children }) {
     setShoppingList({ recipeIds: [], purchased: {} })
   }
 
+  // Логируем факт готовки для раздела «Статистика»: считаем реальную экономию
+  // как разницу между полной закупкой с нуля и закупкой только недостающего
+  // (то есть выгода от того, что часть продуктов уже была дома).
+  function logCooked(recipeId) {
+    const recipe = recipes.find((r) => r.id === recipeId)
+    if (!recipe) return
+    const cost = calcPortionCost(recipe, productMap, customPrices)
+    const fullFromScratch = calcShoppingCost(recipe, productMap, customPrices, {})
+    const actualShopping = calcShoppingCost(recipe, productMap, customPrices, haveAtHome || {})
+    const savings = Math.max(0, fullFromScratch - actualShopping)
+    const entry = {
+      date: new Date().toISOString().slice(0, 10),
+      recipeId,
+      cost,
+      savings,
+    }
+    setCookHistory((prev) => [...prev, entry])
+  }
+
+  function toggleDietFilter(key) {
+    setDietFilters((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]))
+  }
+
   const value = {
     products,
     recipes,
@@ -161,6 +191,10 @@ export function AppDataProvider({ children }) {
     clearShoppingList,
     budgetMode,
     setBudgetMode,
+    cookHistory,
+    logCooked,
+    dietFilters,
+    toggleDietFilter,
   }
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>
