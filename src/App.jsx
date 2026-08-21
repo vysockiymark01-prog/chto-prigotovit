@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext.jsx'
 import { AppDataProvider } from './context/AppDataContext.jsx'
 import BottomNav from './components/BottomNav.jsx'
 import ReminderManager from './components/ReminderManager.jsx'
+import OfflineBanner from './components/OfflineBanner.jsx'
 import HomePage from './pages/HomePage.jsx'
 import RecipePage from './pages/RecipePage.jsx'
 import FavoritesPage from './pages/FavoritesPage.jsx'
@@ -20,6 +21,7 @@ export default function App() {
       <AppDataProvider>
         <HashRouter>
           <ReminderManager />
+          <OfflineBanner />
           <div className="app-shell">
             <Routes>
               <Route path="/" element={<HomePage />} />
